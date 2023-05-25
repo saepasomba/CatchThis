@@ -8,10 +8,10 @@
 import SwiftUI
 
 @main
-struct Hand_Gestures_MLApp: App {
+struct CatchThisApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

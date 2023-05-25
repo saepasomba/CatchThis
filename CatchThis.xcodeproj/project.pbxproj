@@ -7,18 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		432F34EA2A177663007A3DCA /* Hand_Gestures_MLApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F34E92A177663007A3DCA /* Hand_Gestures_MLApp.swift */; };
-		432F34EC2A177663007A3DCA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F34EB2A177663007A3DCA /* ContentView.swift */; };
+		432F34EA2A177663007A3DCA /* CatchThisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F34E92A177663007A3DCA /* CatchThisApp.swift */; };
+		432F34EC2A177663007A3DCA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F34EB2A177663007A3DCA /* MainView.swift */; };
 		432F34EE2A177664007A3DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432F34ED2A177664007A3DCA /* Assets.xcassets */; };
 		432F34F12A177664007A3DCA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432F34F02A177664007A3DCA /* Preview Assets.xcassets */; };
+		432F34FA2A177771007A3DCA /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F34F92A177771007A3DCA /* CameraView.swift */; };
+		432F34FC2A177D16007A3DCA /* HandPoseClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 432F34FB2A177D16007A3DCA /* HandPoseClassifierModel.mlmodel */; };
+		432F35002A1F41D2007A3DCA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F34FF2A1F41D2007A3DCA /* MainViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		432F34E62A177663007A3DCA /* Hand Gestures ML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hand Gestures ML.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		432F34E92A177663007A3DCA /* Hand_Gestures_MLApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hand_Gestures_MLApp.swift; sourceTree = "<group>"; };
-		432F34EB2A177663007A3DCA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		432F34E92A177663007A3DCA /* CatchThisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchThisApp.swift; sourceTree = "<group>"; };
+		432F34EB2A177663007A3DCA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		432F34ED2A177664007A3DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		432F34F02A177664007A3DCA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		432F34F92A177771007A3DCA /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		432F34FB2A177D16007A3DCA /* HandPoseClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HandPoseClassifierModel.mlmodel; sourceTree = "<group>"; };
+		432F34FF2A1F41D2007A3DCA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +57,10 @@
 		432F34E82A177663007A3DCA /* Hand Gestures ML */ = {
 			isa = PBXGroup;
 			children = (
-				432F34E92A177663007A3DCA /* Hand_Gestures_MLApp.swift */,
-				432F34EB2A177663007A3DCA /* ContentView.swift */,
+				432F34E92A177663007A3DCA /* CatchThisApp.swift */,
+				432F35012A1F4254007A3DCA /* View */,
+				432F35022A1F4261007A3DCA /* ViewModel */,
+				432F34FB2A177D16007A3DCA /* HandPoseClassifierModel.mlmodel */,
 				432F34ED2A177664007A3DCA /* Assets.xcassets */,
 				432F34EF2A177664007A3DCA /* Preview Content */,
 			);
@@ -65,6 +73,23 @@
 				432F34F02A177664007A3DCA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		432F35012A1F4254007A3DCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				432F34F92A177771007A3DCA /* CameraView.swift */,
+				432F34EB2A177663007A3DCA /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		432F35022A1F4261007A3DCA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				432F34FF2A1F41D2007A3DCA /* MainViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,7 +127,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 432F34E12A177663007A3DCA /* Build configuration list for PBXProject "Hand Gestures ML" */;
+			buildConfigurationList = 432F34E12A177663007A3DCA /* Build configuration list for PBXProject "CatchThis" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -137,8 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				432F34EC2A177663007A3DCA /* ContentView.swift in Sources */,
-				432F34EA2A177663007A3DCA /* Hand_Gestures_MLApp.swift in Sources */,
+				432F35002A1F41D2007A3DCA /* MainViewModel.swift in Sources */,
+				432F34EC2A177663007A3DCA /* MainView.swift in Sources */,
+				432F34FC2A177D16007A3DCA /* HandPoseClassifierModel.mlmodel in Sources */,
+				432F34FA2A177771007A3DCA /* CameraView.swift in Sources */,
+				432F34EA2A177663007A3DCA /* CatchThisApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,17 +292,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hand Gestures ML/Preview Content\"";
 				DEVELOPMENT_TEAM = G4VYKVQHB6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Catch This!";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,9 +312,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saepasomba.Hand-Gestures-ML";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -293,17 +327,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Hand Gestures ML/Preview Content\"";
 				DEVELOPMENT_TEAM = G4VYKVQHB6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Catch This!";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need camera access";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,16 +347,20 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.saepasomba.Hand-Gestures-ML";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		432F34E12A177663007A3DCA /* Build configuration list for PBXProject "Hand Gestures ML" */ = {
+		432F34E12A177663007A3DCA /* Build configuration list for PBXProject "CatchThis" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				432F34F22A177664007A3DCA /* Debug */,
