@@ -11,7 +11,9 @@ import SwiftUI
 struct CatchThisApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            NavigationStack {
+                IntroductionView()
+            }
         }
     }
 }

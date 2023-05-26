@@ -14,6 +14,7 @@
 		432F34FA2A177771007A3DCA /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F34F92A177771007A3DCA /* CameraView.swift */; };
 		432F34FC2A177D16007A3DCA /* HandPoseClassifierModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 432F34FB2A177D16007A3DCA /* HandPoseClassifierModel.mlmodel */; };
 		432F35002A1F41D2007A3DCA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F34FF2A1F41D2007A3DCA /* MainViewModel.swift */; };
+		432F35042A1F4838007A3DCA /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432F35032A1F4838007A3DCA /* IntroductionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		432F34F92A177771007A3DCA /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		432F34FB2A177D16007A3DCA /* HandPoseClassifierModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = HandPoseClassifierModel.mlmodel; sourceTree = "<group>"; };
 		432F34FF2A1F41D2007A3DCA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		432F35032A1F4838007A3DCA /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				432F34F92A177771007A3DCA /* CameraView.swift */,
 				432F34EB2A177663007A3DCA /* MainView.swift */,
+				432F35032A1F4838007A3DCA /* IntroductionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 				432F34EC2A177663007A3DCA /* MainView.swift in Sources */,
 				432F34FC2A177D16007A3DCA /* HandPoseClassifierModel.mlmodel in Sources */,
 				432F34FA2A177771007A3DCA /* CameraView.swift in Sources */,
+				432F35042A1F4838007A3DCA /* IntroductionView.swift in Sources */,
 				432F34EA2A177663007A3DCA /* CatchThisApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

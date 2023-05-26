@@ -17,12 +17,25 @@ enum GameState {
     case finished
 }
 
+struct GameResult {
+    let isRight: Bool
+    let responseClass: String
+    let description: String
+    let time: Double
+}
+
 
 // MARK: Camera Frame Handling
-@MainActor
 class MainViewModel: ObservableObject {
     @Published var predictionLabel: String?
-    @Published var gameState: GameState = .prePlay
+    @Published var gameState: GameState = .finished
+    
+    @Published var currentTimer: Double = 0
+    @Published var secondsToGreen: Double = 0
+    
+    @Published var gameResult: GameResult?
+    
+    var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
     func handleFrame(_ frame: UIImage) {
         
@@ -74,15 +87,58 @@ class MainViewModel: ObservableObject {
             element.value > 0.8
         }
         
+        //        print()
+        
         if filtered.count == 1 {
-            let element = filtered.first!
-            predictionLabel = "\(element.key) (Confidence: \(Int(element.value * 100))%)"
+            print(filtered.first!.key)
+            if filtered.first!.key == "rock" {
+                if gameState == .playing {
+                    playerAnswered()
+                }
+            }
         }
     }
 }
 
 
-//// MARK: Game Handling
-//extension MainViewModel {
-//    
-//}
+// MARK: Game Handling
+extension MainViewModel {
+    
+    func startGaming() {
+        currentTimer = 0
+        gameState = .playing
+        secondsToGreen = Double(Int.random(in: 3...8))
+    }
+    
+    func handleTimer() {
+        currentTimer += 0.01
+    }
+    
+    
+    func playerAnswered() {
+        let catchTime = currentTimer - secondsToGreen
+        
+        
+        DispatchQueue.main.async {
+            self.gameResult = self.responseClassify(catchTime)
+            self.gameState = .finished
+        }
+    }
+    
+    func responseClassify(_ catchTime: Double) -> GameResult {
+        if catchTime < 0 {
+            return GameResult(isRight: false, responseClass: "Too Soon!", description: "Okay time traveller ⌛️. Sorry but this app is not for you!", time: catchTime * -1)
+        } else {
+            switch catchTime {
+            case 0...0.125:
+                return GameResult(isRight: true, responseClass: "⚡️ Lightning Fast!", description: "You are faster than... I don’t know. Haven’t done the research yet.", time: catchTime)
+            case 0.125...0.280:
+                return GameResult(isRight: true, responseClass: "Average 🤷‍♂️", description: "You are just... Average...", time: catchTime)
+                
+            default:
+                return GameResult(isRight: true, responseClass: "Mr. Cool", description: "Your slow response makes you cool. I get it. Did you look away too?", time: catchTime)
+            }
+            
+        }
+    }
+}

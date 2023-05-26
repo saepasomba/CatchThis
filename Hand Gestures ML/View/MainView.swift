@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  Hand Gestures ML
 //
 //  Created by Sae Pasomba on 19/05/23.
@@ -20,13 +20,62 @@ struct MainView: View {
                     .onFrameCaptured { frame in
                         mainViewModel.handleFrame(frame)
                     }
+                VStack {
+                    Spacer()
+                    if mainViewModel.gameState == .playing {
+                        Circle()
+                            .fill(Color(mainViewModel.gameState == .playing && mainViewModel.currentTimer < mainViewModel.secondsToGreen ? .red : .green))
+                            .frame(width: 100, height: 100)
+                            .padding(.bottom)
+                    } else if mainViewModel.gameState == .finished {
+                        VStack(spacing: 16) {
+                            VStack {
+                                Text("Your reaction time:")
+                                Text("\(mainViewModel.gameResult?.time ?? 0, specifier: "%.3f")")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                            }
+                            .padding()
+                            .background(.thinMaterial)
+                            .cornerRadius(8)
+                            
+                            VStack {
+                                Text("\(mainViewModel.gameResult?.responseClass ?? "Kecepatan Cahaya")")
+                                    .font(.title)
+                                    .fontWeight(.bold)
+                                Text("\(mainViewModel.gameResult?.description ?? "Lorem Ipsum eaeaeaeae eaeaea aeae aeaea aeae")")
+                            }
+                            .padding()
+                            .background(.thinMaterial)
+                            .cornerRadius(8)
+                        }
+                        .padding(.bottom)
+                    }
+                }
             }
             .shadow(radius: 10)
-                .frame(width: 350, height: 550)
-                .cornerRadius(10)
-                .padding(.vertical)
+            .frame(width: 400, height: 600)
+            .cornerRadius(10)
+            .padding(.vertical)
             
-            Text("\(mainViewModel.predictionLabel ?? "Make sure your hand is visible!")")
+            
+            if mainViewModel.gameState == .prePlay || mainViewModel.gameState == .finished {
+                VStack {
+                    Text("Make sure your hand is visible when starting!")
+                        .font(.caption)
+                    Button {
+                        mainViewModel.startGaming()
+                    } label: {
+                        Text(mainViewModel.gameState == .prePlay ? "Tap to play!" : "Play again!")
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+            }
+            
+            
+        }
+        .onReceive(mainViewModel.timer) { time in
+            mainViewModel.handleTimer()
         }
     }
 }
