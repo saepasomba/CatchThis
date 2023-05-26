@@ -20,7 +20,7 @@ struct IntroductionView: View {
                 Text("Hold Your Hand to Catch!")
                     .font(.title)
                     .fontWeight(.bold)
-                Text("Position your hand so it is visible to the camera. This app uses camera and will process your hand gesture with machine learning.")
+                Text("Position your hand so it is visible to the camera.")
                     .font(.body)
                 
                 Button {
@@ -44,7 +44,7 @@ struct IntroductionView: View {
                 Text("Hold Your Hand to Catch!")
                     .font(.title)
                     .fontWeight(.bold)
-                Text("Position your hand so it is visible to the camera. This app uses camera and will process your hand gesture with machine learning.")
+                Text("Position your hand so it is visible to the camera.")
                     .font(.body)
                     .padding(.horizontal)
                 

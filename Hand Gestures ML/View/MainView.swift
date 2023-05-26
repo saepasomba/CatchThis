@@ -59,7 +59,7 @@ struct MainView: View {
                 }
             }
             .shadow(radius: 10)
-            .frame(width: 355, height: 600)
+            .frame(width: 355, height: 562)
             .cornerRadius(10)
             .padding(.vertical)
             
@@ -74,6 +74,7 @@ struct MainView: View {
                         Text(mainViewModel.gameState == .prePlay ? "Tap to play!" : "Play again!")
                     }
                     .buttonStyle(.borderedProminent)
+                    .disabled(!mainViewModel.handDetected)
                 }
             }
             

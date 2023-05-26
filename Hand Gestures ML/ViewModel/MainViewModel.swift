@@ -8,6 +8,7 @@
 import Foundation
 import Vision
 import UIKit
+import SwiftUI
 
 
 // MARK: Game State Enum
@@ -34,6 +35,8 @@ class MainViewModel: ObservableObject {
     @Published var secondsToGreen: Double = 0
     
     @Published var gameResult: GameResult?
+    
+    @Published var handDetected: Bool = false
     
     var timer = Timer.publish(every: 0.01, on: .main, in: .common).autoconnect()
     
@@ -80,6 +83,9 @@ class MainViewModel: ObservableObject {
         let input = HandPoseClassifierModelInput(poses: mlMultiArray)
         
         guard let prediction = try? modelClassifier.prediction(input: input) else {
+            DispatchQueue.main.async {
+                self.handDetected = false
+            }
             return
         }
         
@@ -90,11 +96,18 @@ class MainViewModel: ObservableObject {
         //        print()
         
         if filtered.count == 1 {
+            DispatchQueue.main.async {
+                self.handDetected = true
+            }
             print(filtered.first!.key)
             if filtered.first!.key == "rock" {
                 if gameState == .playing {
                     playerAnswered()
                 }
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.handDetected = false
             }
         }
     }
@@ -105,10 +118,12 @@ class MainViewModel: ObservableObject {
 extension MainViewModel {
     
     func startGaming() {
-        currentTimer = 0
-        gameState = .playing
-        secondsToGreen = Double(Int.random(in: 3...8))
-    }
+        withAnimation {
+            currentTimer = 0
+            gameState = .playing
+            secondsToGreen = Double(Int.random(in: 3...8))
+        }
+        }
     
     func handleTimer() {
         currentTimer += 0.01
@@ -120,8 +135,10 @@ extension MainViewModel {
         
         
         DispatchQueue.main.async {
-            self.gameResult = self.responseClassify(catchTime)
-            self.gameState = .finished
+            withAnimation {
+                self.gameResult = self.responseClassify(catchTime)
+                self.gameState = .finished
+            }
         }
     }
     
@@ -130,9 +147,9 @@ extension MainViewModel {
             return GameResult(isRight: false, responseClass: "Too Soon!", description: "Okay time traveller ⌛️. Sorry but this app is not for you!", time: catchTime * -1)
         } else {
             switch catchTime {
-            case 0..<0.350:
+            case 0..<0.335:
                 return GameResult(isRight: true, responseClass: "⚡️ Lightning Fast!", description: "You are faster than... I don’t know. Haven’t done the research yet.", time: catchTime)
-            case 0.350...0.600:
+            case ...0.600:
                 return GameResult(isRight: true, responseClass: "Average 🤷‍♂️", description: "You are just... Average...", time: catchTime)
                 
             default:
