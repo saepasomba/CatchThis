@@ -28,7 +28,7 @@ struct GameResult {
 // MARK: Camera Frame Handling
 class MainViewModel: ObservableObject {
     @Published var predictionLabel: String?
-    @Published var gameState: GameState = .finished
+    @Published var gameState: GameState = .prePlay
     
     @Published var currentTimer: Double = 0
     @Published var secondsToGreen: Double = 0
@@ -130,9 +130,9 @@ extension MainViewModel {
             return GameResult(isRight: false, responseClass: "Too Soon!", description: "Okay time traveller ⌛️. Sorry but this app is not for you!", time: catchTime * -1)
         } else {
             switch catchTime {
-            case 0...0.125:
+            case 0..<0.350:
                 return GameResult(isRight: true, responseClass: "⚡️ Lightning Fast!", description: "You are faster than... I don’t know. Haven’t done the research yet.", time: catchTime)
-            case 0.125...0.280:
+            case 0.350...0.600:
                 return GameResult(isRight: true, responseClass: "Average 🤷‍♂️", description: "You are just... Average...", time: catchTime)
                 
             default:

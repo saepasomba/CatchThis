@@ -43,18 +43,23 @@ struct MainView: View {
                                 Text("\(mainViewModel.gameResult?.responseClass ?? "Kecepatan Cahaya")")
                                     .font(.title)
                                     .fontWeight(.bold)
+                                    .frame(width: 275)
+                                
                                 Text("\(mainViewModel.gameResult?.description ?? "Lorem Ipsum eaeaeaeae eaeaea aeae aeaea aeae")")
+                                    .multilineTextAlignment(.center)
+                                    .frame(width: 275)
                             }
                             .padding()
                             .background(.thinMaterial)
                             .cornerRadius(8)
                         }
+
                         .padding(.bottom)
                     }
                 }
             }
             .shadow(radius: 10)
-            .frame(width: 400, height: 600)
+            .frame(width: 355, height: 600)
             .cornerRadius(10)
             .padding(.vertical)
             

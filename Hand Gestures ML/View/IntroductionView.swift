@@ -48,7 +48,7 @@ struct IntroductionView: View {
                     .font(.body)
                     .padding(.horizontal)
                 
-                Button {
+                NavigationLink {
                     MainView()
                         .navigationBarBackButtonHidden()
                 } label: {
